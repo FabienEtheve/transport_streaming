@@ -1,3 +1,4 @@
 gtfs-realtime-bindings
 pandas
 kafka-python
+requests
