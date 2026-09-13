@@ -1,3 +1,6 @@
 gtfs-realtime-bindings
 pandas
 kafka-python
+requests
+soda-sparkdf
+pyspark
