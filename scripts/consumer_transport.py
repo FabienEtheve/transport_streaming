@@ -13,7 +13,7 @@ def parse_tu(raw):
     return MessageToJson(tu)
 
 
-spark = SparkSession.builder.appName("transport").master("local[*]").getOrCreate()
+spark = SparkSession.builder.appName("transport_trip_update").master("local[*]").getOrCreate()
 spark.sparkContext.setLogLevel("WARN")
 
 parse_udf = spark.udf.register("parse_tu", parse_tu, StringType())
@@ -21,7 +21,7 @@ parse_udf = spark.udf.register("parse_tu", parse_tu, StringType())
 df = (spark.readStream
       .format("kafka")
       .option("kafka.bootstrap.servers", "broker:9092")
-      .option("subscribe", "transport")
+      .option("subscribe", "transport_trip_update")
       .option("startingOffsets", "latest")
       .load())
 

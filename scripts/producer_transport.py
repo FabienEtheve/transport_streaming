@@ -5,7 +5,7 @@ from kafka import KafkaProducer
 import json
 from google.protobuf.json_format import MessageToDict
 
-URL = "https://proxy.transport.data.gouv.fr/resource/fluo-sub-nancy-gtfs-rt-trip-update?token=xdgqKBTAzhw4DSPz6zeGc4c5eW0LhwztcGv4-vpzP4U"
+URL = "https://www.data.gouv.fr/api/1/datasets/r/a58ae5d5-5415-4d45-b7a6-f07c2e6843aa"
 INTERVAL = 15
 
 starttime = time.monotonic()
@@ -30,7 +30,7 @@ while True:
             for entity in feed.entity:
                 if entity.HasField("trip_update"):
                     
-                    producer.send("transport", key=entity.id, value=entity.trip_update)
+                    producer.send("transport_trip_update", key=entity.id, value=entity.trip_update)
             producer.flush()
             
         else:
