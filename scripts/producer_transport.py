@@ -5,7 +5,7 @@ from kafka import KafkaProducer
 import json
 from google.protobuf.json_format import MessageToDict
 
-URL = "https://www.data.gouv.fr/api/1/datasets/r/7dd97f96-2fb2-4647-8498-ef234ed0faaa"
+URL = "https://proxy.transport.data.gouv.fr/resource/fluo-sub-nancy-gtfs-rt-trip-update?token=xdgqKBTAzhw4DSPz6zeGc4c5eW0LhwztcGv4-vpzP4U"
 INTERVAL = 15
 
 starttime = time.monotonic()

@@ -31,6 +31,8 @@ services:
     ports:
       - '8080:8080'
       - '7077:7077'
+    volumes:
+      - ../scripts:/opt/jobs
     networks:
       - spark-network
   
@@ -43,10 +45,14 @@ services:
       - SPARK_MASTER_URL=spark://spark-master-transp:7077
     ports:
       - "8081:8081"
+    volumes:
+      - ../scripts:/opt/jobs
     depends_on:
       - spark-master-transp
     networks:
       - spark-network
+
+
 
 
 networks:
